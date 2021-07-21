@@ -1,5 +1,5 @@
 # SSM整合开发设计思路
-##框架分工
+## 框架分工
 用户发起请求 -> SpringMVC接收 -> Spring中的Service对象处理业务逻辑 -> Mybatis处理数据 -> SpringMVC把请求的结果交给用户
 
 SSM整合也叫做SSI(IBatis)，整合中有容器
