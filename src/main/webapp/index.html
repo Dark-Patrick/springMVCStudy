@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <base href="http://localhost:8080/ssm/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            $("#submit").click(function (){
+                $.ajax({
+                    url:"student/addStudent",
+                    data:{
+                        name:$.trim($("#stuName").val()),
+                        age:$.trim($("#stuAge").val()),
+                        email:$.trim($("#stuEmail").val()),
+                    },
+                    type:"post",
+                    dataType:"json",
+                    success:function (data){
+                        if(data.success == true){
+                            alert("学生[" + data.student.name + "]:注册成功");
+                            return;
+                        }
+                        alert("注册失败！");
+                    },
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div align="center">
+    <table>
+        <tr>
+            <td>name</td>
+            <td><input id="stuName" type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input id="stuAge" type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input id="stuEmail" type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="submit" type="button" value="   提交   " align="middle"></td>
+        </tr>
+    </table>
+</div>
+<br/><br/><br/>
+<div align="center">
+    <a href="workbench/StudentList.html" >浏览学生</a>
+</div>
+
+<br/><br/><br/>
+</body>
+</html>

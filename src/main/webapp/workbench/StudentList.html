@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <base href="http://localhost:8080/ssm/">
+    <meta charset="UTF-8">
+    <title>StudentList</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            $.get('student/showStudent',function (resp){
+                let html = "";
+                $.each(resp,function (i, n){
+                    html = "<tr><td>"+n.id+"</td><td>"+n.name+"</td><td>"+n.age+"</td><td>"+n.email+"</td></tr>";
+                    $("#info").append(html);
+                })
+            },'json')
+        })
+    </script>
+</head>
+<body>
+    <div align="center">
+        <table>
+            <thead>
+                <tr>
+                    <td>学号</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>Email</td>
+                </tr>
+            </thead>
+            <tbody id="info">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
